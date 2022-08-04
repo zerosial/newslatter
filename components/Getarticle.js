@@ -13,10 +13,14 @@ async function getArticle(page = 1, category = "all", pageSize = 5) {
 
 function setArticle(article) {
   const newslist = document.querySelector(".news-list");
+  const image = article.urlToImage
+    ? article.urlToImage
+    : "./img/skeletonUI.png";
+
   newslist.innerHTML += `<section class="news-item">
 <div class="thumbnail">
     <a href="${article.url}" target="_blank" rel="noopener noreferrer">
-        <img src="${article.urlToImage}" alt="thumbnail" />
+        <img src="${image}" alt="thumbnail" />
     </a>
 </div>
 <div class="contents">
